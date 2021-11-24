@@ -1,0 +1,11 @@
+<div [@popOverState]="stateName" >
+  <h1 class="products-title">Our Collection</h1>
+  <div class="card-deck">
+    <app-product-item
+      *ngFor="let product of products"
+      [product]="product"
+      (clickButton)="addToCart(product)"
+    ></app-product-item>
+  </div>
+</div>
+

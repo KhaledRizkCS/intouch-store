@@ -1,0 +1,36 @@
+<div class="toolbar" role="banner">
+  <img
+    id="intouchLogo"
+    [routerLink]="['/']"
+    width="150"
+    alt="intouch Logo"
+    src="https://assets.website-files.com/5f998c05f018b4e7326c52a7/61123786b993021df5339a59_Logo.svg"
+  />
+  <div class="spacer"></div>
+
+  <div class="dropdown">
+    <a class="btn btn-cart drpbtn"
+      ><fa-icon [ngStyle]="{ color: 'white' }" [icon]="faCartPlus"></fa-icon>
+      Cart <b>({{ cartItems.length }})</b></a
+    >
+    <div *ngIf="cartItems.length != 0" class="dropdown-content">
+      <div class="cart-item" *ngFor="let item of cartItems; let i = index">
+        <h5>{{ item.name }}</h5>
+        <h6>${{ item.price }}</h6>
+        <div class="d-flex justify-content-left">
+          <button
+            type="button"
+            class="btn btn-danger remove-product"
+            (click)="removePrdouct(i)"
+          >
+            Remove Product
+          </button>
+        </div>
+      </div>
+      <div class="cart-item">
+        <h6 id="total-price">Total Price: ${{ totalPrice }}</h6>
+      </div>
+    </div>
+  </div>
+
+</div>

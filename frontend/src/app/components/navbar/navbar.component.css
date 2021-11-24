@@ -1,0 +1,62 @@
+.btn-cart {
+  background-image: linear-gradient(95deg, #3699ff, #a950ff);
+  border-radius: 3px !important;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-top: 10px;
+  width: 130px;
+  height: 46px;
+  border: 0 !important;
+  color: white !important;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  height: 300px;
+  overflow: auto;
+  right: 0;
+}
+
+.cart-item {
+  padding: 3%;
+  border-bottom: 1px solid rgba(138, 138, 160, 0.8);
+}
+
+.dropdown-content .cart-item:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.btn-cart:hover {
+  background-image: linear-gradient(95deg, #ff4fd9, #a950ff);
+  color: white !important;
+}
+
+@media screen and (min-width: 575px) {
+  .dropdown {
+    margin-right: 15%;
+  }
+  #intouchLogo {
+    margin-left: 15%;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .dropdown {
+    margin-right: 5%;
+  }
+}

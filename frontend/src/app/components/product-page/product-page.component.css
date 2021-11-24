@@ -1,0 +1,29 @@
+.product-page-price {
+  font-size: 2rem !important;
+  background: -webkit-linear-gradient(#ff4fd9, #a950ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1%;
+}
+
+.btn-intouch {
+  margin-left: 2%;
+}
+
+@media screen and (min-width: 575px) {
+  .product-page-title {
+    border-bottom: 2px solid #a950ff;
+    width: 50%;
+    padding-bottom: 1%;
+    margin-bottom: 2%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .product-page-title {
+    border-bottom: 2px solid #a950ff;
+    width: 100%;
+    padding-bottom: 5%;
+    margin-bottom: 5%;
+  }
+}

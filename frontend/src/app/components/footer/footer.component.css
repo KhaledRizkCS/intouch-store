@@ -1,0 +1,18 @@
+#footer {
+  background-color: #001330 !important;
+  font: white !important;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+#footerText {
+  color: white !important;
+}
+
+@media screen and (max-width: 575px) {
+  #footer {
+    height: 50px;
+  }
+}

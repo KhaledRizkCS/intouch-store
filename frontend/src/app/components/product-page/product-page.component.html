@@ -1,0 +1,105 @@
+<main class="pt-4" [@popOverState]="stateName">
+  <div class="container dark-grey-text">
+    <h1 class="product-page-title" id="product-name">{{ product.name }}</h1>
+
+    <!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-md-6 mb-4">
+        <img
+          id="product-image"
+          src="{{ product.image }}"
+          class="img-fluid"
+          alt=""
+        />
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-md-6 mb-4">
+        <!--Content-->
+        <div class="p-4">
+          <b class="product-page-price" id="product-price">
+            ${{ product.price.toFixed(2) }}
+          </b>
+
+          <p id="product-rating">
+            <fa-icon
+              *ngFor="let star of stars"
+              [ngStyle]="{ color: 'gold' }"
+              [icon]="
+                star == 1 ? faStar : star == 0 ? faStarEmpty : faStarHalfAlt
+              "
+            ></fa-icon>
+            ({{ rating.toFixed(1) }} based on {{ product.reviews.length }}
+            {{ product.reviews.length == 1 ? "review" : "reviews" }})
+          </p>
+
+          <p id="product-description">{{ product.description }}</p>
+
+          <form class="d-flex justify-content-left">
+            <!-- Default input -->
+            <input
+              name="amount"
+              [(ngModel)]="amount"
+              type="number"
+              aria-label="Search"
+              class="form-control"
+              style="width: 100px"
+            />
+            <button class="btn btn-intouch btn-md my-0 p" (click)="addToCart()">
+              Add to cart
+            </button>
+          </form>
+        </div>
+        <!--Content-->
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+
+    <hr />
+
+    <!--Grid row-->
+    <div class="row d-flex justify-content-center">
+      <!--Grid column-->
+      <div class="col-md-6 text-center">
+        <h4 class="my-4 h4">Reviews</h4>
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+
+    <ul *ngIf="product.reviews.length !== 0" class="list-group" id="reviews">
+      <li
+        *ngFor="let review of product.reviews"
+        class="
+          list-group-item
+          d-flex
+          justify-content-between
+          align-items-center
+          review
+        "
+      >
+        {{ review.body }}
+        <span
+          class="badge badge-pill"
+          [ngClass]="{
+            'badge-success': review.rating >= 4,
+            'badge-warning': review.rating <= 4 && review.rating >= 2,
+            'badge-danger': review.rating <= 2
+          }"
+          >{{ review.rating.toFixed(1) }}</span
+        >
+      </li>
+    </ul>
+
+    <div
+      *ngIf="product.reviews.length === 0"
+      id="no-reviews"
+      class="row d-flex justify-content-center"
+    >
+      <h6>No reviews yet!</h6>
+    </div>
+  </div>
+</main>

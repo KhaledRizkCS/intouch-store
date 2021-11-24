@@ -1,0 +1,11 @@
+h5 > a {
+  background: -webkit-linear-gradient(#3699ff, #a950ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h5 > a:hover {
+  background: -webkit-linear-gradient(#ff4fd9, #a950ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

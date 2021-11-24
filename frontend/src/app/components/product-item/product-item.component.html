@@ -1,0 +1,29 @@
+<img
+  class="card-img-top"
+  id="product-image"
+  [src]="product.image"
+  alt="Card image cap"
+/>
+<div class="card-body">
+  <h5 class="card-title">
+    <a id="product-name" routerLink="/product/{{ product.id }}">{{
+      product.name
+    }}</a>
+  </h5>
+  <p id="product-rating">
+    <fa-icon
+      *ngFor="let star of stars"
+      [ngStyle]="{ color: 'gold' }"
+      [icon]="star == 1 ? faStar : star == 0 ? faStarEmpty : faStarHalfAlt"
+    ></fa-icon>
+    ({{ rating.toFixed(1) }} based on {{ product.reviews.length }}
+    {{ product.reviews.length == 1 ? "review" : "reviews" }})
+  </p>
+  <p class="card-text" id="product-description">{{ product.description }}</p>
+</div>
+<div class="card-footer">
+  <div class="btn-wrapper text-center">
+    <a class="btn btn-intouch" (click)="onClick()">Add to Cart</a>
+    <b class="price" id="product-price">${{ product.price.toFixed(2) }}</b>
+  </div>
+</div>

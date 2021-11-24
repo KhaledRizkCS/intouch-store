@@ -1,0 +1,37 @@
+version: "3.7"
+services:
+  postgresdb:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - addressbook-db:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+      SEQUELIZE_DATABASE: postgres
+      SEQUELIZE_USERNAME: postgres
+      SEQUELIZE_PASSWORD: postgres
+      SEQUELIZE_HOST: postgresdb
+    depends_on:
+      - postgresdb
+    ports:
+      - '3000:3000'
+
+  frontend:
+    build:
+      context: ./frontend
+    links:
+      - backend
+    ports:
+      - '80:80'
+
+volumes:
+  addressbook-db: null
